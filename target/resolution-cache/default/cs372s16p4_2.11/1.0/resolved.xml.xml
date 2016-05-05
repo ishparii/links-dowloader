@@ -4,7 +4,7 @@
 		module="cs372s16p4_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20160502223049"
+		publication="20160505124258"
 	>
 		<description>
 		cs372s16p4
@@ -34,5 +34,9 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.8" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.11.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="io.reactivex" name="rxscala_2.11" rev="+" conf="compile->default(compile)"/>
+		<dependency org="com.ning" name="async-http-client" rev="+" conf="compile->default(compile)"/>
+		<dependency org="org.slf4j" name="slf4j-simple" rev="+" conf="compile->default(compile)"/>
+		<dependency org="jline" name="jline" rev="2.12.1" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

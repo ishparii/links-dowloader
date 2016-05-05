@@ -1,5 +1,7 @@
 package model
 
+import com.ning.http.client.{ListenableFuture, Response}
+
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -7,7 +9,7 @@ import scala.collection.mutable.ListBuffer
   */
 class Downloader() {
 
-  private val downloads = ListBuffer[Download]()
+  private val downloads = ListBuffer[ListenableFuture[Response]]()
   private val asyncDownloader= new AsyncDownloader
 
   def start (url:String, file: String): Unit =
@@ -19,10 +21,10 @@ class Downloader() {
     var index=0
     downloads.map{
       index +=1;
-      download => (index, download.progress.getBytesRead, download.progress.getTotalBytes )}.toList
+      download => (index, download.get.getStatusCode, download.get.getStatusCode )}.toList
 
   }
 
-  def getDownload(index:Int) = downloads(index)
+  def getDownload(index:Int):ListenableFuture[Response] = downloads(index)
 
 }

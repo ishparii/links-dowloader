@@ -9,7 +9,7 @@ import scala.collection.mutable.ListBuffer
   */
 class Downloader() {
 
-  private val downloads = ListBuffer[ListenableFuture[Response]]()
+  private val downloads = ListBuffer[Download]()
   private val asyncDownloader= new AsyncDownloader
 
   def start (url:String, file: String): Unit =
@@ -21,10 +21,10 @@ class Downloader() {
     var index=0
     downloads.map{
       index +=1;
-      download => (index, download.get.getStatusCode, download.get.getStatusCode )}.toList
+      download => (index, download.response.get.getStatusCode, download.response.get.getStatusCode )}.toList
 
   }
 
-  def getDownload(index:Int):ListenableFuture[Response] = downloads(index)
+  def getDownload(index:Int):Download = downloads(index)
 
 }

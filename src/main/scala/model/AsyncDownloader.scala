@@ -4,6 +4,11 @@ import com.ning.http.client._
 import com.ning.http.client.listener._
 import java.io.{ File, FileOutputStream }
 
+trait TransferListenerProgressReporter extends TransferListener {
+  def getBytesDownloaded():Int
+  def getBytesTotal():Int
+}
+
   class AsyncDownloader {
 
     def fileSaver(name: String) = new TransferListener {
@@ -25,7 +30,10 @@ import java.io.{ File, FileOutputStream }
       def onThrowable(t: Throwable): Unit = stream.get.close()
     }
 
-    val progressReporter = new TransferListener {
+    val progressReporter = new TransferListenerProgressReporter {
+
+
+
       def onRequestHeadersSent(headers: FluentCaseInsensitiveStringsMap): Unit = ()
 
       def onResponseHeadersReceived(headers: FluentCaseInsensitiveStringsMap): Unit = print("+")
@@ -37,15 +45,20 @@ import java.io.{ File, FileOutputStream }
       def onRequestResponseCompleted(): Unit = println("!")
 
       def onThrowable(t: Throwable): Unit = {}
+
+      override def getBytesDownloaded(): Int = ???
+
+      override def getBytesTotal(): Int = ???
     }
 
     val client = new AsyncHttpClient
 
-    def download(url: String, local: String): ListenableFuture[Response] = {
+    def download(url: String, local: String): Download = {
       val t = new TransferCompletionHandler
       t.addTransferListener(fileSaver(local))
       t.addTransferListener(progressReporter)
-      client.prepareGet(url).execute(t)
+      val response = client.prepareGet(url).execute(t)
+      new Download(response, progressReporter)
     }
 
   }

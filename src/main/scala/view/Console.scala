@@ -7,6 +7,7 @@ import _root_.jline.console.ConsoleReader
 import scala.util.matching.Regex
 import model.Downloader
 
+import scala.io.Source
 import scala.util.Try
 
 object Console {
@@ -37,12 +38,14 @@ object Console {
           //print("input: " + s)
           val parsedUrl = Try(new URL(s))
           if (parsedUrl.isSuccess) {
-            val file = s.substring(s.lastIndexOf('/'), s.length)
-            
-            try {
-              downloader.start(s, file)
-            } catch {
-              case e: MalformedURLException => println("Invalid URL!")
+            val file = s.substring(s.lastIndexOf('/')+1, s.length)
+            println("File name: " + file)
+            if (resourseExists(parsedUrl.get)) {
+              try {
+                downloader.start(s, file)
+              } catch {
+                case e: MalformedURLException => println("Invalid URL!")
+              }
             }
           } else {
             println("The command is not recognized or provided URL is invalid!")
@@ -74,5 +77,17 @@ object Console {
   }
 
   val EOL = scala.util.Properties.lineSeparator
+
+  def resourseExists(url:URL):Boolean = {
+    try {
+      val text = Source.fromURL(url).getLines()
+    } catch {
+      case e: java.io.IOException => {
+        println("No recourse at the given url")
+        return false
+      }
+    }
+    return true
+  }
 
 }

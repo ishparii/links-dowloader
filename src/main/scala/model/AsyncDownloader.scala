@@ -47,4 +47,5 @@ import java.io.{ File, FileOutputStream }
       t.addTransferListener(progressReporter)
       client.prepareGet(url).execute(t)
     }
+
   }

@@ -25,9 +25,10 @@ class Downloader() {
   def getDownloadsInfo: List[(Int,String, Int, Int)] ={
     var index=0
     downloads.map{
-      index +=1;
-      download => (index, download.progressReporter.getStatus(), download.progressReporter.getBytesDownloaded(), download.progressReporter.getBytesTotal() )}.toList
-
+      download => {
+        index +=1
+        (index, download.progressReporter.getStatus(), download.progressReporter.getBytesDownloaded(), download.progressReporter.getBytesTotal() )
+      }}.toList
   }
 
   def getDownload(index:Int):Download = downloads(index)

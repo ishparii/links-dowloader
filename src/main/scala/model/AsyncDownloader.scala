@@ -33,51 +33,55 @@ trait TransferListenerProgressReporter extends TransferListener {
       def onThrowable(t: Throwable): Unit = stream.get.close()
     }
 
-    val progressReporter = new TransferListenerProgressReporter {
 
-      var totalBytes = 0
+    def createProgressReporter():TransferListenerProgressReporter = {
+      val progressReporter = new TransferListenerProgressReporter {
 
-      val downloadedBytes = new AtomicInteger(0)
+        var totalBytes = 0
 
-      var status = "Not Started"
+        val downloadedBytes = new AtomicInteger(0)
 
-      def onRequestHeadersSent(headers: FluentCaseInsensitiveStringsMap): Unit = ()
+        var status = "Not Started"
 
-      def onResponseHeadersReceived(headers: FluentCaseInsensitiveStringsMap): Unit = {
-        val contentLength = Some(headers.getFirstValue("Content-Length"))
-        if (contentLength.isDefined) {
-          totalBytes = contentLength.get.toInt
-          status = "In Progress"
+        def onRequestHeadersSent(headers: FluentCaseInsensitiveStringsMap): Unit = ()
+
+        def onResponseHeadersReceived(headers: FluentCaseInsensitiveStringsMap): Unit = {
+          val contentLength = Some(headers.getFirstValue("Content-Length"))
+          if (contentLength.isDefined) {
+            totalBytes = contentLength.get.toInt
+            status = "In Progress"
+          }
+
         }
-        
+
+        def onBytesReceived(buffer: Array[Byte]): Unit = {
+          downloadedBytes.addAndGet(buffer.length)
+          //print("*")
+        }
+
+        def onBytesSent(amount: Long, current: Long, total: Long): Unit = ()
+
+        def onRequestResponseCompleted(): Unit = {
+          println("\nDownload is Completed!")
+          status = "Completed"
+          //println("!")
+        }
+
+        def onThrowable(t: Throwable): Unit = {
+          println("Download Failed!")
+        }
+
+        override def getBytesDownloaded(): Int = downloadedBytes.get()
+
+        override def getBytesTotal(): Int = totalBytes
+
+        override def getStatus(): String = status
+
+        override def setStatus(s: String): Unit = {
+          status = s
+        }
       }
-
-      def onBytesReceived(buffer: Array[Byte]): Unit = {
-        downloadedBytes.addAndGet(buffer.length)
-        //print("*")
-      }
-
-      def onBytesSent(amount: Long, current: Long, total: Long): Unit = ()
-
-      def onRequestResponseCompleted(): Unit = {
-        println("\nDownload is Completed!")
-        status = "Completed"
-        //println("!")
-      }
-
-      def onThrowable(t: Throwable): Unit = {
-        println("Download Failed!")
-      }
-
-      override def getBytesDownloaded(): Int = downloadedBytes.get()
-
-      override def getBytesTotal(): Int = totalBytes
-
-      override def getStatus(): String = status
-
-      override def setStatus(s:String): Unit = {
-        status = s
-      }
+      progressReporter
     }
 
     val client = new AsyncHttpClient
@@ -85,6 +89,7 @@ trait TransferListenerProgressReporter extends TransferListener {
     def download(url: String, local: String): Download = {
       val t = new TransferCompletionHandler
       t.addTransferListener(fileSaver(local))
+      val progressReporter = createProgressReporter()
       t.addTransferListener(progressReporter)
       val response = client.prepareGet(url).execute(t)
       new Download(response, progressReporter)

@@ -4,7 +4,7 @@
 		module="cs372s16p4_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20160505200337"
+		publication="20160505234726"
 	>
 		<description>
 		cs372s16p4
@@ -38,5 +38,6 @@
 		<dependency org="com.ning" name="async-http-client" rev="+" conf="compile->default(compile)"/>
 		<dependency org="org.slf4j" name="slf4j-simple" rev="+" conf="compile->default(compile)"/>
 		<dependency org="jline" name="jline" rev="2.12.1" conf="compile->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.4" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>

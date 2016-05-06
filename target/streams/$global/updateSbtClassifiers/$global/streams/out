@@ -1,6 +1,7 @@
 [debug] Other repositories:
 [debug] Default repositories:
 [debug] Using inline dependencies specified in Scala.
+[debug] no default cache defined: set to C:\Users\admin\.ivy2\cache
 [debug] :: resolving dependencies :: default#cs372s16p4$sbt_2.11;1.0
 [debug] 	confs: [default]
 [debug] 	validate = true
@@ -703,9 +704,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.8!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
-[debug] :: resolution report :: resolve 3186ms :: artifacts dl 177ms
-[debug] 	report for default#cs372s16p4$sbt_2.11;1.0 default produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sbt_2.11-default.xml
-[debug] 	resolve done (3186ms resolve - 177ms download)
+[debug] :: resolution report :: resolve 362ms :: artifacts dl 24ms
+[debug] 	report for default#cs372s16p4$sbt_2.11;1.0 default produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sbt_2.11-default.xml
+[debug] 	resolve done (362ms resolve - 24ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#cs372s16p4$sources_2.11;1.0
 [debug] 	confs: [default]
@@ -1069,6 +1070,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_8_2;0.13.8!precompiled-2_8_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_2;0.13.8!precompiled-2_9_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.8!precompiled-2_9_3.jar(src)
-[debug] :: resolution report :: resolve 3145ms :: artifacts dl 225ms
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 default produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-default.xml
-[debug] 	resolve done (3145ms resolve - 225ms download)
+[debug] :: resolution report :: resolve 81ms :: artifacts dl 20ms
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 default produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-default.xml
+[debug] 	resolve done (81ms resolve - 20ms download)

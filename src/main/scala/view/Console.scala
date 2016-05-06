@@ -15,6 +15,7 @@ object Console {
   val downloader = new Downloader
   var httpUrl= new Regex("/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/")
   var sampleLink= "http://download.redis.io/releases/redis-3.0.7.tar.gz"
+  val cancelRegEx = """^\s*([cC])\s+([0-9]+)\s*$""".r
 
   def main(args: Array[String])= {
     console.setPrompt("\nDownload Link> ")
@@ -26,16 +27,22 @@ object Console {
        isValid(_: String)
      } foreach{
       (s:String) => s match {
-        case "c" => println("C")
+        case cancelRegEx(c, index) => {
+          val canceled = downloader.cancel(index.toInt)
+          if (canceled) {
+            println("Download was Canceled!")
+          } else {
+            println("Cancel Failed!")
+          }
+          //println("C")
+        }
         case "l" =>{
           downloader.getDownloadsInfo.foreach{
             tuple => showDownloadInfo(tuple._1, tuple._2, tuple._3, tuple._4)
           }
 
         }
-        case "d" => downloader.start(sampleLink, "redis-3.0.7.tar.gz")
         case _ => {
-          //print("input: " + s)
           val parsedUrl = Try(new URL(s))
           if (parsedUrl.isSuccess) {
             val file = s.substring(s.lastIndexOf('/')+1, s.length)

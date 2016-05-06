@@ -9,6 +9,7 @@ trait TransferListenerProgressReporter extends TransferListener {
   def getBytesDownloaded():Int
   def getBytesTotal():Int
   def getStatus():String
+  def setStatus(status:String):Unit
 }
 
   class AsyncDownloader {
@@ -73,6 +74,10 @@ trait TransferListenerProgressReporter extends TransferListener {
       override def getBytesTotal(): Int = totalBytes
 
       override def getStatus(): String = status
+
+      override def setStatus(s:String): Unit = {
+        status = s
+      }
     }
 
     val client = new AsyncHttpClient

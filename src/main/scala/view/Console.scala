@@ -69,11 +69,11 @@ object Console {
 
   // index, status, bytes downloaded, total bytes, percentage for each download
   def showDownloadInfo(index:Int, status:String, downloaded: Int, total:Int):Unit ={
-    val progress = (downloaded)/total * 100
+    val progress = (downloaded.toDouble)/total * 100
     console.getCursorBuffer().clear()
     console.getCursorBuffer().write(index + ". size: " + total + " Bytes --- " + status + " --- ")
     console.getCursorBuffer().write(downloaded + " Bytes downloaded ")
-    console.getCursorBuffer().write("--- " + progress + "%\n")
+    console.getCursorBuffer().write("--- " + f"$progress%1.2f" + "%\n")
     console.setCursorPosition(console.getTerminal.getWidth)
     console.redrawLine()
 

@@ -6,7 +6,7 @@
 [debug] == resolving dependencies for default#cs372s16p4$sources_2.11;1.0 [compile]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.scala-lang#scala-library;2.11.8 [compile->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.11.8 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@53b2c545
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@315e8d78
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.8
 [debug] 	found org.scala-lang#scala-library;2.11.8 in sbt-chain
 [debug] 	[2.11.8] org.scala-lang#scala-library;2.11.8
@@ -15,7 +15,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.scala-lang#scala-library;2.11.8 [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.reactivex#rxscala_2.11;0.26.1 [compile->default(compile)]
 [info] Resolving io.reactivex#rxscala_2.11;0.26.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@71456962
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1575ed1d
 [debug] sbt-chain: module revision found in cache: io.reactivex#rxscala_2.11;0.26.1
 [debug] 	found io.reactivex#rxscala_2.11;0.26.1 in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.reactivex#rxscala_2.11;0.26.1 [compile->runtime]
@@ -23,7 +23,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.reactivex#rxscala_2.11;0.26.1 [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.reactivex#rxjava;1.1.1 [compile->default(compile)]
 [info] Resolving io.reactivex#rxjava;1.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@39478ed3
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6488d118
 [debug] sbt-chain: module revision found in cache: io.reactivex#rxjava;1.1.1
 [debug] 	found io.reactivex#rxjava;1.1.1 in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.reactivex#rxjava;1.1.1 [compile->runtime]
@@ -31,7 +31,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.reactivex#rxjava;1.1.1 [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->com.ning#async-http-client;1.9.38 [compile->default(compile)]
 [info] Resolving com.ning#async-http-client;1.9.38 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1120bcba
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1e3d9265
 [debug] sbt-chain: module revision found in cache: com.ning#async-http-client;1.9.38
 [debug] 	found com.ning#async-http-client;1.9.38 in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->com.ning#async-http-client;1.9.38 [compile->runtime]
@@ -39,7 +39,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->com.ning#async-http-client;1.9.38 [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.netty#netty;3.10.5.Final [compile->default(compile)]
 [info] Resolving io.netty#netty;3.10.5.Final ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3f0287c1
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@586b32cd
 [debug] sbt-chain: module revision found in cache: io.netty#netty;3.10.5.Final
 [debug] 	found io.netty#netty;3.10.5.Final in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.netty#netty;3.10.5.Final [compile->runtime]
@@ -47,7 +47,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->io.netty#netty;3.10.5.Final [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.slf4j#slf4j-simple;1.7.21 [compile->default(compile)]
 [info] Resolving org.slf4j#slf4j-simple;1.7.21 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@46dc6b43
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5a2aab91
 [debug] sbt-chain: module revision found in cache: org.slf4j#slf4j-simple;1.7.21
 [debug] 	found org.slf4j#slf4j-simple;1.7.21 in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.slf4j#slf4j-simple;1.7.21 [compile->runtime]
@@ -55,7 +55,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.slf4j#slf4j-simple;1.7.21 [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.slf4j#slf4j-api;1.7.21 [compile->default(compile)]
 [info] Resolving org.slf4j#slf4j-api;1.7.21 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@62487208
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@68c863ac
 [debug] sbt-chain: module revision found in cache: org.slf4j#slf4j-api;1.7.21
 [debug] 	found org.slf4j#slf4j-api;1.7.21 in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.slf4j#slf4j-api;1.7.21 [compile->runtime]
@@ -63,7 +63,7 @@
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->org.slf4j#slf4j-api;1.7.21 [compile->master]
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->jline#jline;2.12.1 [compile->default(compile)]
 [info] Resolving jline#jline;2.12.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7b1ca30a
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7a083bc3
 [debug] sbt-chain: module revision found in cache: jline#jline;2.12.1
 [debug] 	found jline#jline;2.12.1 in sbt-chain
 [debug] == resolving dependencies default#cs372s16p4$sources_2.11;1.0->jline#jline;2.12.1 [compile->runtime]
@@ -618,18 +618,18 @@
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.11.8!scala-reflect.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.4!scala-xml_2.11.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4!scala-parser-combinators_2.11.jar(src)
-[debug] :: resolution report :: resolve 76ms :: artifacts dl 15ms
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 compile produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-compile.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 runtime produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-runtime.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 test produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-test.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 provided produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-provided.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 optional produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-optional.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 compile-internal produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-compile-internal.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 runtime-internal produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-runtime-internal.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 test-internal produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-test-internal.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 plugin produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-plugin.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 sources produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-sources.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 docs produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-docs.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 pom produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-pom.xml
-[debug] 	report for default#cs372s16p4$sources_2.11;1.0 scala-tool produced in C:\dev\scala-prog-lang\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-scala-tool.xml
-[debug] 	resolve done (76ms resolve - 15ms download)
+[debug] :: resolution report :: resolve 1349ms :: artifacts dl 235ms
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 compile produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-compile.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 runtime produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-runtime.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 test produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-test.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 provided produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-provided.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 optional produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-optional.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 compile-internal produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-compile-internal.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 runtime-internal produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-runtime-internal.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 test-internal produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-test-internal.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 plugin produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-plugin.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 sources produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-sources.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 docs produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-docs.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 pom produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-pom.xml
+[debug] 	report for default#cs372s16p4$sources_2.11;1.0 scala-tool produced in C:\Users\Chingari\Desktop\comp471projects\cs372s16p4\target\resolution-cache\reports\default-cs372s16p4$sources_2.11-scala-tool.xml
+[debug] 	resolve done (1349ms resolve - 235ms download)

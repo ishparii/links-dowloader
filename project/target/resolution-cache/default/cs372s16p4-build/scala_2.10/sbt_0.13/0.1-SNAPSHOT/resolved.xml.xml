@@ -4,7 +4,7 @@
 		module="cs372s16p4-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20160505124257"
+		publication="20160505200256"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

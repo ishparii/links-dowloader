@@ -28,8 +28,8 @@ object Console {
       (s:String) => s match {
         case "c" => println("C")
         case "l" =>{
-          downloader.getDownloads.foreach{
-            tuple => getProgress(tuple._2, tuple._3)
+          downloader.getDownloadsInfo.foreach{
+            tuple => showDownloadInfo(tuple._1, tuple._2, tuple._3, tuple._4)
           }
 
         }
@@ -58,25 +58,15 @@ object Console {
 
   def isValid(s:String):Boolean = !(s.equals("q"))
 
-  def getProgress(downloadCompleted: Int, totalDownloads:Int):Unit ={
-    val progress = setProgress(downloadCompleted, totalDownloads)
+  def showDownloadInfo(index:Int, status:String, downloaded: Int, total:Int):Unit ={
+    val progress = (downloaded)/total * 100
     console.getCursorBuffer().clear()
-    console.getCursorBuffer().write( "\nStatus of file: \n")
-    console.getCursorBuffer().write(progress)
+    console.getCursorBuffer().write(index + ". size: " + total + " Bytes --- " + status + " --- ")
+    console.getCursorBuffer().write(downloaded + " Bytes downloaded ")
+    console.getCursorBuffer().write("--- " + progress + "%\n")
     console.setCursorPosition(console.getTerminal.getWidth)
     console.redrawLine()
   }
-
-  def setProgress(downloadCompleted:Int, totalDownloads:Int):String ={
-    val progress = (downloadCompleted * 10)/totalDownloads
-    val buffer = new StringBuffer()
-    val completeness = (downloadCompleted.toFloat/totalDownloads) * 100
-    buffer.append(completeness.toInt.toString).append("%")
-    buffer.append(" " + totalDownloads).append(EOL)
-    buffer.toString()
-  }
-
-  val EOL = scala.util.Properties.lineSeparator
 
   def resourseExists(url:URL):Boolean = {
     try {

@@ -17,11 +17,11 @@ class Downloader() {
 
  // def cancel(index:Int): Boolean
 
-  def getDownloads: List[(Int,Int, Int)] ={
+  def getDownloadsInfo: List[(Int,String, Int, Int)] ={
     var index=0
     downloads.map{
       index +=1;
-      download => (index, download.response.get.getStatusCode, download.response.get.getStatusCode )}.toList
+      download => (index, download.progressReporter.getStatus(), download.progressReporter.getBytesDownloaded(), download.progressReporter.getBytesTotal() )}.toList
 
   }
 

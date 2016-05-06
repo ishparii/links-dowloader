@@ -2,11 +2,13 @@ package model
 
 import com.ning.http.client._
 import com.ning.http.client.listener._
-import java.io.{ File, FileOutputStream }
+import java.io.{File, FileOutputStream}
+import java.util.concurrent.atomic.AtomicInteger
 
 trait TransferListenerProgressReporter extends TransferListener {
   def getBytesDownloaded():Int
   def getBytesTotal():Int
+  def getStatus():String
 }
 
   class AsyncDownloader {
@@ -32,23 +34,45 @@ trait TransferListenerProgressReporter extends TransferListener {
 
     val progressReporter = new TransferListenerProgressReporter {
 
+      var totalBytes = 0
 
+      val downloadedBytes = new AtomicInteger(0)
+
+      var status = "Not Started"
 
       def onRequestHeadersSent(headers: FluentCaseInsensitiveStringsMap): Unit = ()
 
-      def onResponseHeadersReceived(headers: FluentCaseInsensitiveStringsMap): Unit = print("+")
+      def onResponseHeadersReceived(headers: FluentCaseInsensitiveStringsMap): Unit = {
+        val contentLength = Some(headers.getFirstValue("Content-Length"))
+        if (contentLength.isDefined) {
+          totalBytes = contentLength.get.toInt
+          status = "In Progress"
+        }
+        //print("+")
+      }
 
-      def onBytesReceived(buffer: Array[Byte]): Unit = print("*")
+      def onBytesReceived(buffer: Array[Byte]): Unit = {
+        downloadedBytes.addAndGet(buffer.length)
+        //print("*")
+      }
 
       def onBytesSent(amount: Long, current: Long, total: Long): Unit = ()
 
-      def onRequestResponseCompleted(): Unit = println("!")
+      def onRequestResponseCompleted(): Unit = {
+        println("\nDownload is Completed!")
+        status = "Completed"
+        //println("!")
+      }
 
-      def onThrowable(t: Throwable): Unit = {}
+      def onThrowable(t: Throwable): Unit = {
+        println("Download Failed!")
+      }
 
-      override def getBytesDownloaded(): Int = ???
+      override def getBytesDownloaded(): Int = downloadedBytes.get()
 
-      override def getBytesTotal(): Int = ???
+      override def getBytesTotal(): Int = totalBytes
+
+      override def getStatus(): String = status
     }
 
     val client = new AsyncHttpClient

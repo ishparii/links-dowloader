@@ -4,7 +4,7 @@ import java.net.{MalformedURLException, URL}
 
 import _root_.jline.console.ConsoleReader
 
-import scala.util.matching.Regex
+
 import model.Downloader
 
 import scala.io.Source
@@ -13,9 +13,9 @@ import scala.util.Try
 object Console {
   val console = new ConsoleReader()
   val downloader = new Downloader
-  var httpUrl= new Regex("/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/")
-  var sampleLink= "http://download.redis.io/releases/redis-3.0.7.tar.gz"
   val cancelRegEx = """^\s*([cC])\s+([0-9]+)\s*$""".r
+
+  //var sampleLink= "http://download.redis.io/releases/redis-3.0.7.tar.gz"
 
   def main(args: Array[String])= {
     console.setPrompt("\nDownload Link> ")
@@ -27,6 +27,7 @@ object Console {
        isValid(_: String)
      } foreach{
       (s:String) => s match {
+          //cancel the download
         case cancelRegEx(c, index) => {
           val canceled = downloader.cancel(index.toInt)
           if (canceled) {
@@ -34,8 +35,9 @@ object Console {
           } else {
             println("Cancel Failed!")
           }
-          //println("C")
+
         }
+          // shows list of active and completed downloads.
         case "l" =>{
           downloader.getDownloadsInfo.foreach{
             tuple => showDownloadInfo(tuple._1, tuple._2, tuple._3, tuple._4)
@@ -65,16 +67,16 @@ object Console {
 
   def isValid(s:String):Boolean = !(s.equals("q"))
 
+  // index, status, bytes downloaded, total bytes, percentage for each download
   def showDownloadInfo(index:Int, status:String, downloaded: Int, total:Int):Unit ={
     val progress = (downloaded)/total * 100
     console.getCursorBuffer().clear()
     console.getCursorBuffer().write(index + ". size: " + total + " Bytes --- " + status + " --- ")
     console.getCursorBuffer().write(downloaded + " Bytes downloaded ")
     console.getCursorBuffer().write("--- " + progress + "%\n")
-    console.setCursorPosition(console.getTerminal.getWidth)
-    console.redrawLine()
-  }
 
+  }
+  // check if resource exists at the given URL
   def resourseExists(url:URL):Boolean = {
     try {
       val text = Source.fromURL(url).getLines()

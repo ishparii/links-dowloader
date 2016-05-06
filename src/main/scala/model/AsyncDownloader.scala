@@ -49,7 +49,7 @@ trait TransferListenerProgressReporter extends TransferListener {
           totalBytes = contentLength.get.toInt
           status = "In Progress"
         }
-        //print("+")
+        
       }
 
       def onBytesReceived(buffer: Array[Byte]): Unit = {

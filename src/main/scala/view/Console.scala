@@ -74,6 +74,8 @@ object Console {
     console.getCursorBuffer().write(index + ". size: " + total + " Bytes --- " + status + " --- ")
     console.getCursorBuffer().write(downloaded + " Bytes downloaded ")
     console.getCursorBuffer().write("--- " + progress + "%\n")
+    console.setCursorPosition(console.getTerminal.getWidth)
+    console.redrawLine()
 
   }
   // check if resource exists at the given URL
